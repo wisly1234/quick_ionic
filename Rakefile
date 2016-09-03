@@ -1,4 +1,4 @@
-def ionic_path; "~/workspace/quick_ionic/tmplate_tabs" end
+def site_path; "~/workspace/quick_ionic/tmplate_tabs/www" end
 
 desc "add all module data like  rake module_add[my_module] "
 task :module_add, [:module_name] do |t, args|
@@ -12,4 +12,5 @@ end
 task :controller_add, [:controller_name] do |t, args|
   controller_name = args[:controller_name]
   puts "get controller_name: #{controller_name}, #{args}"
+  ruby "-C. tools/gen_controller.rb #{site_path} #{controller_name}"
 end
