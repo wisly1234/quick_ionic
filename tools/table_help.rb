@@ -74,7 +74,7 @@ def get_statebits
 end
 
 def read_to_hash(file_name)
-  JSON.parse(IO.read("file_name"))
+  JSON.parse(IO.read("#{file_name}"))
 end
 
 def remove_config(file_name)

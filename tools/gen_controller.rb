@@ -6,19 +6,25 @@ puts "check args:#{ARGV}"
 
 folder, controller_name = ARGV
 
-TEMEPLATE="
-function #{controller_name}Ctrl($scope) {
-	//Add your code here
+CONTROLLER_TEMEPLATE="
+g_controller.controller('#{controller_name}Ctrl', function($scope) {}){
+  
 }
-"
+"  
+save_str(CONTROLLER_TEMEPLATE, "#{folder}/js/app/#{controller_name}_controller.js")
+save_str(CONTROLLER_TEMEPLATE, "#{folder}/js/wap/#{controller_name}_controller.js")
 
 
-File.open("#{folder}/js/app/#{controller_name}_controller.js", "w") do |f|
-	f.write(TEMEPLATE)
+
+controllers_str="var g_controller = angular.module('starter.controllers', []);\n"
+
+controllers = read_to_hash("#{folder}/config/controllers.json")
+controllers ||= []
+controllers << controller_name
+
+controllers.each do |one_controller|
+	controllers_str += "document.write(\"<script src='js/app/#{one_controller}.js'></script>\");\n"
 end
 
-
-File.open("#{folder}/js/wap/#{controller_name}_controller.js", "w") do |f|
-	f.write(TEMEPLATE)
-end
-
+save_str(controllers_str, "#{folder}/js/app/controllers.js")
+save_str(controllers_str, "#{folder}/js/wap/controllers.js")
