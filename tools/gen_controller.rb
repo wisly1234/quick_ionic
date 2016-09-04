@@ -1,3 +1,6 @@
+require_relative 'table_help'
+# require "table_help"
+
 
 puts "check args:#{ARGV}"
 
@@ -18,3 +21,4 @@ end
 File.open("#{folder}/js/wap/#{controller_name}_controller.js", "w") do |f|
 	f.write(TEMEPLATE)
 end
+
