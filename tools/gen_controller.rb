@@ -9,7 +9,7 @@ folder, controller_name = ARGV
 CONTROLLER_TEMEPLATE="
 g_controller.controller('#{controller_name}Ctrl', function($scope) {}){
   
-}
+};
 "  
 save_str(CONTROLLER_TEMEPLATE, "#{folder}/js/app/#{controller_name}_controller.js")
 save_str(CONTROLLER_TEMEPLATE, "#{folder}/js/wap/#{controller_name}_controller.js")
@@ -23,8 +23,9 @@ controllers ||= []
 controllers << controller_name
 
 controllers.each do |one_controller|
-	controllers_str += "document.write(\"<script src='js/app/#{one_controller}.js'></script>\");\n"
+	controllers_str += "document.write(\"<script src='js/app/#{one_controller}_controller.js'></script>\");\n"
 end
 
 save_str(controllers_str, "#{folder}/js/app/controllers.js")
 save_str(controllers_str, "#{folder}/js/wap/controllers.js")
+save_to_json(controllers, "#{folder}/config/controllers.json")

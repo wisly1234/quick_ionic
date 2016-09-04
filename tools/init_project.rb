@@ -15,3 +15,4 @@ Dir.mkdir("#{folder}/config") unless  (File.exist?("#{folder}/config"))
 
 save_to_json([], "#{folder}/config/controllers.json")
 save_to_json([], "#{folder}/config/services.json")
+save_to_json([], "#{folder}/config/views.json")
