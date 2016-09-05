@@ -7,9 +7,10 @@ puts "check args:#{ARGV}"
 folder, controller_name = ARGV
 
 CONTROLLER_TEMEPLATE="
-g_controller.controller('#{controller_name}Ctrl', function($scope) {}){
-  
-};
+g_controller.controller('#{controller_name}Ctrl', function($scope) {
+
+	
+	});
 "  
 save_str(CONTROLLER_TEMEPLATE, "#{folder}/js/app/#{controller_name}_controller.js")
 save_str(CONTROLLER_TEMEPLATE, "#{folder}/js/wap/#{controller_name}_controller.js")
