@@ -8,7 +8,9 @@ folder, view_name, controller_name = ARGV
 
 VIEW_TEMEPLATE="
 <ion-view view-title=\"\" class=\"\">
-
+  <ion-content class=\"\">
+    <h2>this is page #{view_name}</h2>
+  </ion-content>
 </ion-view>
 "  
 save_str(VIEW_TEMEPLATE, "#{folder}/templates/app/#{view_name}.html")

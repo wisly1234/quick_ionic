@@ -18,7 +18,8 @@ save_to_json([], "#{folder}/config/services.json")
 save_to_json([], "#{folder}/config/views.json")
 
 
-INIT_TEMPLATE = "
+def get_app_str(folder) 
+"
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -44,13 +45,14 @@ var app = angular.module('starter', ['ionic', 'starter.controllers', 'starter.se
   });
 });
 
+document.write(\"<script src='js/#{folder}/router.js'></script>\");
 "
-
-save_str(INIT_TEMPLATE, "#{folder}/js/app/app.js")
-save_str(INIT_TEMPLATE, "#{folder}/js/wap/app.js")
+end
+save_str(get_app_str("app"), "#{folder}/js/app/app.js")
+save_str(get_app_str("wap"), "#{folder}/js/wap/app.js")
 
 CONTROLLER_TEMPLATE = "
 var g_controller = angular.module('starter.controllers', []);
 "
-save_str(INIT_TEMPLATE, "#{folder}/js/app/controllers.js")
-save_str(INIT_TEMPLATE, "#{folder}/js/wap/controllers.js")
+save_str(CONTROLLER_TEMPLATE, "#{folder}/js/app/controllers.js")
+save_str(CONTROLLER_TEMPLATE, "#{folder}/js/wap/controllers.js")
