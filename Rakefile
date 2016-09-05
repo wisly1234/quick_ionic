@@ -1,5 +1,21 @@
 def site_path; "~/workspace/quick_ionic/tabs/www" end
 
+desc "show help"
+task :help do 
+  puts "
+  NOTICE: change the first line of Rakefile with your project folder
+  1. rake init 
+  --  init project folder
+  2. rake module_add[my_module]
+  -- add module to project 
+  3. rake controller_add[my_controller]
+  -- add controller to project
+  4. rake view_add[my_view]
+  -- add view to project
+  "
+end
+
+
 
 desc "init basic app directory"
 task :init do 
