@@ -43,8 +43,9 @@ end
 
 
 desc "add view module like  rake view_add[my_view] "
-task :view_add, [:view_name] do |t, args|
+task :view_add, [:view_name,:controller_name] do |t, args|
   view_name = args[:view_name]
+  controller_name = args[:controller_name]
   puts "get view_name: #{view_name}, #{args}"
-  ruby "-C. tools/gen_view.rb #{site_path} #{view_name}"
+  ruby "-C. tools/gen_view.rb #{site_path} #{view_name} #{controller_name}"
 end

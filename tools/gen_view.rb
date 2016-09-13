@@ -19,7 +19,7 @@ save_str(VIEW_TEMEPLATE, "#{folder}/templates/wap/#{view_name}.html")
 
 
 # controllers_str="var g_controller = angular.module('starter.views', []);\n"
-controller_name = view_name
+controller_name ||= view_name
 
 views = read_to_hash("#{folder}/config/views.json")
 views ||= []
